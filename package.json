@@ -1,0 +1,15 @@
+{
+  "name": "band-practice-random-song",
+  "version": "1.0.0",
+  "description": "App to randomly select songs from my bands google sheets track list.",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape 'test/**/*.js'"
+  },
+  "author": "Evan Hackett",
+  "license": "ISC",
+  "dependencies": {
+    "google-spreadsheet": "^2.0.7",
+    "tape": "^4.11.0"
+  }
+}
