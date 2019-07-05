@@ -1,0 +1,8 @@
+html
+  head
+    title= 'Randomized Tracklist'
+  body
+    h1= 'Songs in random order'
+    ul
+      each song in songs
+        li= song.song + ' - ' + song.artist
