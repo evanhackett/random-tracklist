@@ -43,7 +43,7 @@ test('server should serve html with song list', t => {
   const server = spawn('node', ['./index.js'])
   server.stdout.on('data', data => {
     request(url, (err, res, body) => {
-      t.equal(body.includes('<h1>Songs in random'), true)
+      t.equal(body.includes('<h1>Today\'s random tracklist'), true)
       t.equal(body.includes('<li>David Watts'), true)
       t.end()
       server.kill()
