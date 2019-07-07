@@ -1,8 +1,9 @@
 html
   head
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     title= 'Randomized Tracklist'
   body
-    h1= 'Today\'s random tracklist'
+    h1= 'Today\'s tracklist'
     ul
       each song in songs
         li= song.title + ' - ' + song.artist
