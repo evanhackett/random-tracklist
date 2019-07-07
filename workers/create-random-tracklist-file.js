@@ -12,7 +12,5 @@ get_track_list((err, tracklist) => {
     postedby: song.postedby
   }))
 
-  // TODO: practice streams by getting a JSON serialize stream and piping it into an fs writeStream.
-  
   fs.writeFileSync('./random-tracklist.json', JSON.stringify({songs: shuffle(songs)}))
 })
