@@ -1,0 +1,2 @@
+# this should refresh the tracklist once per day at midnight
+0 0 * * * /usr/bin/node /var/nodejs/random-tracklist/workers/create-random-tracklist-file.js
