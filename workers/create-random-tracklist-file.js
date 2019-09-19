@@ -12,5 +12,5 @@ get_track_list((err, tracklist) => {
     postedby: song.postedby
   }))
 
-  fs.writeFileSync('./random-tracklist.json', JSON.stringify({songs: shuffle(songs)}))
+  fs.writeFileSync(__dirname + '/../random-tracklist.json', JSON.stringify({songs: shuffle(songs)}))
 })
