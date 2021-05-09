@@ -1,12 +1,13 @@
-const GoogleSpreadsheet = require('google-spreadsheet')
+const { GoogleSpreadsheet } = require('google-spreadsheet')
 
-const spreadsheet_id = '1P0KHudN3uGfR-GhF1VkqtscJoR2DjxU19KhmimxbB_c'
+const spreadsheetId = '1P0KHudN3uGfR-GhF1VkqtscJoR2DjxU19KhmimxbB_c'
 const creds = require('./client_secret.json')
-const doc = new GoogleSpreadsheet(spreadsheet_id)
+const doc = new GoogleSpreadsheet(spreadsheetId)
 
-module.exports = function (cb) {
-  doc.useServiceAccountAuth(creds, function (err) {
-    if (err) return cb(err)
-    doc.getRows(1, cb)
-  })
+module.exports = async function () {
+  await doc.useServiceAccountAuth(creds)
+  await doc.loadInfo() // have to call this first to load doc
+
+  const sheet = doc.sheetsByIndex[0]
+  return await sheet.getRows()
 }

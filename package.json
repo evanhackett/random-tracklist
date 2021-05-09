@@ -4,15 +4,17 @@
   "description": "App to randomly select songs from my bands google sheets track list.",
   "main": "index.js",
   "scripts": {
-    "test": "tape 'test/**/*.js'"
+    "test": "tape 'test/**/*.js' | tap-nirvana"
   },
   "author": "Evan Hackett",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "google-spreadsheet": "^2.0.7",
+    "google-spreadsheet": "^3.1.15",
     "lodash.shuffle": "^4.2.0",
-    "pug": "^2.0.4",
+    "pug": "^3.0.2",
+    "request": "^2.88.2",
+    "tap-nirvana": "^1.1.0",
     "tape": "^4.11.0"
   }
 }

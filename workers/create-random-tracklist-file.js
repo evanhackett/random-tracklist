@@ -1,16 +1,23 @@
-const get_track_list = require('../get-tracklist.js')
+const getTrackList = require('../get-tracklist.js')
 const shuffle = require('lodash.shuffle')
 const fs = require('fs')
+const path = require('path')
 
-get_track_list((err, tracklist) => {
-  if (err) return console.log(err)
+// wrapping code in async function so we can use await (no await at top level)
+async function run () {
+  const tracklist = await getTrackList()
 
   const songs = tracklist.map(song => ({
-    title: song.song,
-    artist: song.artist,
-    played: song.played,
-    postedby: song.postedby
+    title: song.Song,
+    artist: song.Artist,
+    played: song['Played?'],
+    postedby: song['Posted by']
   }))
 
-  fs.writeFileSync(__dirname + '/../random-tracklist.json', JSON.stringify({songs: shuffle(songs)}))
-})
+  const filePath = path.join(__dirname, '../random-tracklist.json')
+  console.log('writing random tracklist to: ', filePath)
+
+  fs.writeFileSync(filePath, JSON.stringify({ songs: shuffle(songs) }))
+}
+
+run()
